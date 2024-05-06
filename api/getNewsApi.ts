@@ -8,7 +8,12 @@ export const getNewsFeed = async() : Promise<string | INewsFeed[]> =>{
   try {
     const resp = await fetch(`
       https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&language=en&from=${yesterdayDate}&page=1&pageSize=54
-    `)
+    `, {
+      next: {
+        revalidate: 3600 * 4//revalidate every 4 hourse and fetch latest news
+      }
+    })
+
     const data = await resp.json();
 
     if (data.status === 'error')throw data;
