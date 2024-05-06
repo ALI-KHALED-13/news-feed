@@ -6,4 +6,5 @@ interface INewsFeed {
   url: string;
   urlToImage?: string;
   content: string;
+  publishedAt: string;
 }

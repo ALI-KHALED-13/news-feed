@@ -19,17 +19,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <header className="p-3 flex gap-1 items-center">
-        <NewspaperClipping size={35} color="#db7d2b"/>
-        <h1>
-          <Link
-            href="/"
-            className="uppercase text-[24px]"
-          >
-            news Feed
-          </Link>
-        </h1>
-      </header>
+        <header className="p-3 flex gap-1 items-center">
+          <NewspaperClipping size={35} color="#db7d2b"/>
+          <h1>
+            <Link
+              href="/"
+              className="uppercase text-[24px]"
+            >
+              news Feed
+            </Link>
+          </h1>
+        </header>
         {children}
       </body>
     </html>

@@ -7,8 +7,8 @@ const DetailsPage = async ({params}: {params: {idx:string}})=>{
   
   const data = await getNewsFeed();
 
-  const newsDetail = data instanceof Array? data[+params.idx] : null;
-
+  const newsDetail = data instanceof Array? data[+params.idx - 1] : null;
+  
   return (
     <main className="min-h-screen p-5 md:p-16 max-w-[1000px] mx-auto">
       <Link href="/" className="flex items-center gap-2 mb-5 p-1 underline w-fit">
@@ -37,12 +37,17 @@ const DetailsPage = async ({params}: {params: {idx:string}})=>{
                 alt="representive image"
               />
             )}
-            <span className="text-slate-400">{newsDetail.author}</span>
           </div>
+          <span className="text-slate-400 flex justify-between mb-4">
+            {newsDetail.author}
+            {" "}
+            <time dateTime={newsDetail.publishedAt}>
+              {new Date(newsDetail.publishedAt).toDateString()}
+            </time>
+          </span>
           
           <p>
-            {newsDetail.content}
-            <br />
+            {newsDetail.content.replace(/\[\+\d+ chars\]/, '')}
             <a
               rel="noopener noreferrer"
               href={newsDetail.url}

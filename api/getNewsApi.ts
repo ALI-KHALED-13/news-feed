@@ -10,7 +10,7 @@ export const getNewsFeed = async() : Promise<string | INewsFeed[]> =>{
       https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&language=en&from=${yesterdayDate}&page=1&pageSize=54
     `, {
       next: {
-        revalidate: 3600 * 4//revalidate every 4 hourse and fetch latest news
+        revalidate: 3600 * 4//revalidate every 4 hours and fetch latest news
       }
     })
 

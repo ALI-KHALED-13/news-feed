@@ -5,7 +5,7 @@ import Link from "next/link";
 export default async function Home() {
   
   const data = await getNewsFeed();
-
+  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-20">
       {typeof data === 'string'? ( // error
@@ -19,9 +19,9 @@ export default async function Home() {
               key={feed.url}
               className="w-full md:w-1/2 md:max-w-[500px] text-lg"
             >
-              <Link href={`/${idx}`}>
+              <Link href={`/${idx + 1}`}>
                 {feed.urlToImage && (
-                  <div className="w-full h-60 relative">
+                  <div className="w-full h-64 relative">
                     <Image
                       src={feed.urlToImage}
                       alt={feed.title}
